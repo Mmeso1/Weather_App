@@ -6,24 +6,27 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/Mmeso1/Weather_App.git
-Navigate to the project directory:
+```
 
+Navigate to the project directory:
 ```bash
 cd Weather_App
+```
 
 ### Install dependencies:
 ```bash
 pip install -r requirements.txt
+```
 
 ### Create a .env file in the project root and add the required environment variables:
-
 ```env
 SECRET_KEY=your_secret_key_here
+```
 
 ### Run the application:
 ``` bash
 python Weather_App/__init__.py
-
+```
 -- The Flask app will be accessible at http://127.0.0.1:5000/.
 
 ## App Structure
