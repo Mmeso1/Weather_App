@@ -3,12 +3,11 @@ A weather app that was built with Python and Flask that tells you the weather of
 
 ## Getting Started
 Clone the repository:
-
 ```bash
 git clone https://github.com/Mmeso1/Weather_App.git
 ```
 
-Navigate to the project directory:
+## Navigate to the project directory:
 ```bash
 cd Weather_App
 ```
