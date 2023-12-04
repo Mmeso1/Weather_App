@@ -4,24 +4,24 @@ A weather app that was built with Python and Flask that tells you the weather of
 ## Getting Started
 Clone the repository:
 
-`` bash
+``` bash
 git clone https://github.com/Mmeso1/Weather_App.git
 Navigate to the project directory:
 
-`` bash
+``` bash
 cd Weather_App
 
 ### Install dependencies:
-`` bash
+``` bash
 pip install -r requirements.txt
 
 ### Create a .env file in the project root and add the required environment variables:
 
-`` env
+``` env
 SECRET_KEY=your_secret_key_here
 
 ### Run the application:
-`` bash
+``` bash
 python Weather_App/__init__.py
 
 -- The Flask app will be accessible at http://127.0.0.1:5000/.
