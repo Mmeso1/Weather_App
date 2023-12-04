@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
+body{
+    background-color: #E8F0FF;
+    font-family:  'Philosopher', sans-serif;
+}
+
+.base{
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 50%; /* Take up the full width of the parent container */
+    min-height: 80vh; /* Take up the full height of the viewport */
+    padding: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 128, 0.2);
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+
+.home{
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 50%; /* Take up the full width of the parent container */
+    min-height: 80vh; /* Take up the full height of the viewport */
+    display: flex;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 128, 0.2);;
+}
+
+.home header{
+    margin-top: -8rem;
+}
+
+.home header form input{
+    border: transparent;
+    background-color: #E8F0FF;
+    border-radius: 10px;
+    padding: .6rem;
+}
+.home header form input:focus{
+    border: .3px solid #ccc;
+    outline: none;
+}
+
+.home .loc-iframe, .w-iframe{
+    border: 1px solid paleturquoise;
+   height: 35vh;
+}
+
+/* left */
+.profile{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    margin-right: -17rem;
+}
+
+.top3 i{
+    cursor: pointer;
+}
+
+/* weather icon */
+.w-icon{
+    width: 4rem;
+    height: 4rem;
+}
+
+.w_info{
+    display: flex;
+    background: rgb(169,200,250);
+    border-radius: 20px;
+    padding: .5rem 1rem;
+    transition: background 1s ease,padding 0.8s ease-in-out;
+}
+
+/* Gradient background for clear weather */
+.clear-weather {
+    background: linear-gradient(109deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 0, 0.5) 100%);
+}
+
+/* Gradient background for sunny weather */
+.sunny-weather {
+    background: linear-gradient(109deg, rgba(255, 255, 0, 0.5) 0%, rgba(255, 165, 0, 0.5) 100%);
+}
+
+/* Gradient background for rainy weather */
+.rainy-weather {
+    background: linear-gradient(109deg, rgba(0, 0, 255, 0.5) 0%, rgba(0, 128, 255, 0.5) 100%);
+}
+
+/* Gradient background for overcast weather */
+.overcast-weather {
+    background: linear-gradient(109deg, rgba(128, 128, 128, 0.5) 0%, rgba(64, 64, 64, 0.5) 100%);
+}
+
+/* Gradient background for stormy weather */
+.stormy-weather {
+    background: linear-gradient(109deg, rgba(128, 0, 0, 0.5) 0%, rgba(255, 0, 0, 0.5) 100%);
+}
+
+/* Gradient background for cloudy weather */
+.cloudy-weather {
+    background: linear-gradient(109deg, rgba(192, 192, 192, 0.5) 0%, rgba(128, 128, 128, 0.5) 100%);
+}
+
+/* Default gradient background style */
+.default-weather {
+    background: linear-gradient(109deg, rgba(169, 200, 250, 1) 0%, rgba(128, 175, 253, 1) 100%);
+}
+
+
+
+/* Style for the left side */
+.home .left {
+    flex: 1;
+    padding-right: 20px;
+}
+
+/* Style for the right side */
+.home .right {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.degrees {
+    background: linear-gradient(to bottom, #F1F6FF, #B3CFFE);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 3rem;
+    margin: 0;
+}
+
+.w_info .left h3, 
+.w_info .right p{
+    color: white;
+}
+.w_info .left h3{
+ font-size: 20px;
+    color: white;
+}
+
+/* Clear */
+.clear-weather .left  h3, 
+.clear-weather .right  p{
+    color: #D1D2D4;
+}
+
+
+/* Future forecast data on home page */
+.forecast-day .day{
+    border: 1px transparent solid;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 128, 0.2);
+    padding: .8rem .5rem;
+    align-items: center;
+}
+
+.forecast-day .day p:first-of-type{
+    color: #5C99FD;
+}
+
+.forecast-day .day p:nth-child(2){
+    color: #D1D2D4;
+}

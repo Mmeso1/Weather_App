@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="home mx-auto mt-5">
+    <div class="left">
+        <header class="mt-3">
+            <form action="/" method="get">
+                <input type="text" name="city" id="city" placeholder="Enter city">
+            </form>
+        </header>
+        <div class="location mt-4">
+            <div class="top">
+                <!-- Display city and country from weather data -->
+                <h3>{{  weather_data['city'] }}, {{  weather_data['country'] }}</h3>
+                <p>{{  weather_data['date'] | timestamp_to_date}}</p>
+            </div>
+            <div class="h_forecast">
+                <iframe
+                width="300"
+                height="220"
+                frameborder="0"
+                style="border:0"
+                src="https://www.openstreetmap.org/export/embed.html?bbox={{ map }}"
+                allowfullscreen>
+              </iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <span class="top3 ">
+            <i class="fas fa-bars"></i>
+            <i class="fa-regular fa-bell"></i>
+            <img src="../static/linkedin profile.avif" class="profile" alt="profile pic">
+        </span>
+        
+        <div class="w_info mt-3
+        {{ weather_data['weather_description'] | lower }}-weather">
+
+            <div class="left">
+                <!-- Display weather description and time -->
+                <h3>{{  weather_data['weather_description'] }}</h3>
+                {% for forecast_entry in weather_data['forecast_data'] %}
+                    {% if loop.index == 1 %} {# Check if it's the first iteration #}
+                        <p>Max Temp (C): {{ forecast_entry['max_temp_c'] }}</p>
+                        <p>Min Temp (C): {{ forecast_entry['min_temp_c'] }}</p>
+                    {% endif %}
+                {% endfor %}
+                <a href="{{ url_for('views.more_info', day=0, city=weather_data['city']) }}" style="font-size: 14px;">More info</a>
+
+            </div>
+            <div class="right">
+                <!-- Display temperature and feels-like temperature -->
+                <img src="{{weather_data['icon']}}" class="w-icon" alt="">
+                <h3 class="degrees">{{  weather_data['temperature'] }}&deg;</h3>
+                <p>Feels like {{  weather_data['feels_like_temperature'] }}&deg;</p>
+            </div>
+        </div>
+        
+        <div class="forecast mt-4">
+            <p>Next 2 Days Forecast </p>
+                <div class="forecast-day">
+                    <a href="{{ url_for('views.future_cast', day=1, city=weather_data['city']) }}" class="text-decoration-none">
+                        <div class="day d-flex mt-1">
+                            <p>{{ weather_data['forecast_data'][1]['date'] | timestamp_to_date }}</p>
+                            <p class="ml-3">{{ weather_data['forecast_data'][1]['min_temp_c'] }} / {{ weather_data['forecast_data'][1]['max_temp_c'] }}</p>
+                            <img src="{{ weather_data['forecast_data'][1]['icon'] }}" alt="">
+                            <p class="mt-3">{{ weather_data['forecast_data'][1]['weather_description'] }}</p>
+                            <!-- Add more forecast details as needed -->
+                        </div>
+                    </a>
+                   
+                    <a href="{{ url_for('views.future_cast', day=2, city=weather_data['city']) }}" class="text-decoration-none">
+                        <div class="day d-flex mt-3 ">
+                            <p>{{ weather_data['forecast_data'][2]['date'] | timestamp_to_date }}</p>
+                            <p>{{ weather_data['forecast_data'][2]['min_temp_c'] }} / {{ weather_data['forecast_data'][2]['max_temp_c'] }}</p>
+                            <img src="{{ weather_data['forecast_data'][2]['icon'] }}" alt="">
+                            <p class="mt-3">{{ weather_data['forecast_data'][2]['weather_description'] }}</p>
+                            <!-- Add more forecast details as needed -->
+                        </div>
+                    </a>
+                    
+                </div>            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

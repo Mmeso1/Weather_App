@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="more-info base mx-auto mt-5">
+
+    <!-- The country's name is listed there -->
+    <div class=" d-flex align-items-center justify-content-between">
+        <h1>{{ weather_data['city'] }}, {{ weather_data['country'] }}</h1> 
+        <a href="/"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+
+    <!-- Just some of the values i wanted to display there -->
+    <div class="mi-div">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Temperature (°C)</th>
+                    <th>Weather Description</th>
+                    <!-- Add more table headers for additional data if needed -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for hourly_entry in weather_data['forecast_data'][selected_day]['hourly_data'] %}
+                    <tr>
+                        <td>{{ hourly_entry['time'] }}</td>
+                        <td>{{ hourly_entry['temp_c'] }}</td>
+                        <td>{{ hourly_entry['weather_description'] }}</td>
+                        <!-- Add more table columns for additional data if needed -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+{% endblock %}
